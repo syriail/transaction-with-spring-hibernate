@@ -1,3 +1,18 @@
+db:
+  name: "transactions"
+  host: localhost
+  username: postgres
+  password: password
+
 spring:
-  application:
-    name: transaction
+  application.name: transaction
+
+  datasource:
+    url: "jdbc:postgresql://${db.host}:5432/${db.name}"
+    username: ${db.username}
+    password: ${db.password}
+  sql:
+    init:
+      platform: postgresql
+  flyway:
+    enabled: false
